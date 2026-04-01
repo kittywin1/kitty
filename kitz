@@ -1,0 +1,13 @@
+local key = getgenv().Key or ""
+
+if key == "" then
+    return print("No key provided!")
+end
+
+local response = game:HttpGet("https://your-api.onrender.com/verify?key=" .. key)
+
+if response ~= "INVALID" then
+    loadstring(response)()
+else
+    print("Invalid key!")
+end
